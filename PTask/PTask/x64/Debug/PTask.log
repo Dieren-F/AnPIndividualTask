@@ -1,0 +1,5 @@
+﻿  PTask.cpp
+C:\Users\manku\OneDrive - Южный Федеральный Университет\АиП 1 Семестр\personaltask\PTask\PTask\PTask.cpp(73,31): warning C4244: =: преобразование "double" в "unsigned int", возможна потеря данных
+C:\Users\manku\OneDrive - Южный Федеральный Университет\АиП 1 Семестр\personaltask\PTask\PTask\PTask.cpp(113,37): warning C4244: =: преобразование "double" в "unsigned int", возможна потеря данных
+C:\Users\manku\OneDrive - Южный Федеральный Университет\АиП 1 Семестр\personaltask\PTask\PTask\PTask.cpp(119,43): warning C4244: =: преобразование "double" в "unsigned int", возможна потеря данных
+  PTask.vcxproj -> C:\Users\manku\OneDrive - Южный Федеральный Университет\АиП 1 Семестр\personaltask\PTask\x64\Debug\PTask.exe
