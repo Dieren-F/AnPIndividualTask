@@ -1,9 +1,13 @@
-﻿#include <iostream>
+﻿// Индивидуальное задание, Вариант 3
+
+#include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
 #include <vector>
 #include "PTask.h"
+
+//#define DEBUG
 
 void openClients(std::vector<client>& clientsList) {
 	std::ifstream file;
@@ -204,7 +208,8 @@ int main() {
 	openUsedServices(usedServicesList);
 	openParam(parametersList);
 
-	
+#ifdef DEBUG
+
 	for (int i = 0; i != 4; i++) {
 		std::cout << "Name: " << clientsList[i].name << std::endl;
 		std::cout << "Number: " << clientsList[i].number << std::endl;
@@ -246,8 +251,10 @@ int main() {
 		if (checkIfInTime(parametersList[i].sdate, parametersList[i].edate, usedServicesList[i].date)) std::cout << "True" << std::endl;
 		else std::cout << "False" << std::endl;
 	}
-	
 
+#endif
+	
+	bool nodata = true;
 	std::ofstream file("Report.txt");
 	if (file.is_open()) {
 		for (int y = 0; y < parametersList.size(); y++) {
@@ -259,12 +266,15 @@ int main() {
 								(tariffList[e].name==parametersList[y].nameone || tariffList[e].name == parametersList[y].nametwo) &&
 								checkIfInTime(parametersList[y].sdate, parametersList[y].edate, usedServicesList[j].date)) {
 								file << clientsList[i].name << std::endl;
+								nodata = false;
 							}
 						}
 					}
 				}
 			}
 		}
+		if (nodata) { file << "No Data"; std::cout << "No data to report"; }
+		else { std::cout << "Report has been constructed"; }
 		file.close();
 	}
 	else {
